@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Competitions</title>
+</head>
+<body>
+    <h1>Competitions</h1>
+    <a href="{{ url_for('create_competition') }}">Create New Competition</a>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Title</th><th>Start Date</th><th>End Date</th><th>Actions</th>
+        </tr>
+        {% for comp in competitions %}
+        <tr>
+            <td>{{ comp.compID }}</td>
+            <td>{{ comp.title }}</td>
+            <td>{{ comp.startDate }}</td>
+            <td>{{ comp.endDate }}</td>
+            <td>
+                <a href="{{ url_for('edit_competition', compID=comp.compID) }}">Edit</a>
+                <form action="{{ url_for('delete_competition', compID=comp.compID) }}" method="post" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Are you sure?');">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

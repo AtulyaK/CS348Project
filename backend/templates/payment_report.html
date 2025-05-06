@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Payment Report</title>
+</head>
+<body>
+    <div class="admin-box">
+        Admin Logged In
+    </div>
+
+    <div class="container">
+        <h2>Select a Month for Payment Report</h2>
+        <form method="POST" action="/payment_report">
+            <label for="month">Select Month:</label>
+            <input type="month" id="month" name="month" required>
+            <button type="submit">Generate Report</button>
+        </form>
+    </div>
+</body>
+</html>

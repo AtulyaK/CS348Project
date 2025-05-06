@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Competition</title>
+</head>
+<body>
+    <h1>Create Competition</h1>
+    <form method="post">
+        <label>Title:</label><br>
+        <input type="text" name="title" required><br>
+        <label>Start Date:</label><br>
+        <input type="date" name="startDate" required><br>
+        <label>End Date:</label><br>
+        <input type="date" name="endDate" required><br>
+        <button type="submit">Create</button>
+    </form>
+    <a href="{{ url_for('competitions') }}">Back to Competitions</a>
+</body>
+</html>

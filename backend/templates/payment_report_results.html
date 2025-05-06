@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Payment Report Results</title>
+</head>
+<body>
+    <div class="admin-box">
+        Admin Logged In
+    </div>
+
+    <div class="container">
+        <h2>Payment Report for {{ month }}</h2>
+
+        {% if payments %}
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Total Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for payment in payments %}
+                <tr>
+                    <td>{{ payment.userID }}</td>
+                    <td>{{ payment.name }}</td>
+                    <td>${{ payment.total_cost }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No payment data found for the selected month.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
